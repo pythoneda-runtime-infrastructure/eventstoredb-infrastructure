@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/infrastructure/dbus/boot_dbus_signal_emitter.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_dbus_signal_emitter.py
 
-This file defines the BootDbusSignalEmitter class.
+This file defines the EventstoredbDbusSignalEmitter class.
 
-Copyright (C) 2023-today boot's pythoneda-runtime/boot-infrastructure
+Copyright (C) 2023-today boot's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,31 +20,35 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from dbus_next import BusType
-from pythoneda.shared.runtime.events.lifecycle import Booted
-from pythoneda.shared.runtime.events.lifecycle.dbus import DbusBooted
+from pythoneda.shared.runtime.infrastructure.events.eventstoredb import (
+    EventstoredbBooted,
+)
+from pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus import (
+    EventstoredbDbusBooted,
+)
 from pythoneda.shared.infrastructure.dbus import DbusSignalEmitter
 from typing import Dict
 
 
-class BootDbusSignalEmitter(DbusSignalEmitter):
+class EventstoredbDbusSignalEmitter(DbusSignalEmitter):
 
     """
-    A Port that emits Boot events as d-bus signals.
+    A Port that emits EventStoreDB infrastructure events as d-bus signals.
 
-    Class name: BootDbusSignalEmitter
+    Class name: EventstoredbDbusSignalEmitter
 
     Responsibilities:
         - Connect to d-bus.
-        - Emit domain events as d-bus signals on behalf of Boot.
+        - Emit infrastructure events as d-bus signals on behalf of EventStoreDB.
 
     Collaborators:
         - pythoneda.shared.application.PythonEDA: Requests emitting events.
-        - pythoneda.shared.runtime.events.lifecycle.infrastructure.dbus.DbusBooted
+        - pythoneda.shared.runtime.infrastructure.events.eventstoredb.infrastructure.dbus.EventstoredbDbusBooted
     """
 
     def __init__(self):
         """
-        Creates a new BootDbusSignalEmitter instance.
+        Creates a new EventstoredbDbusSignalEmitter instance.
         """
         super().__init__()
 
@@ -55,8 +59,8 @@ class BootDbusSignalEmitter(DbusSignalEmitter):
         :rtype: Dict
         """
         result = {}
-        key = self.__class__.full_class_name(Booted)
-        result[key] = [DbusBooted, BusType.SYSTEM]
+        key = self.__class__.full_class_name(EventstoredbBooted)
+        result[key] = [EventstoredbDbusBooted, BusType.SYSTEM]
 
         return result
 

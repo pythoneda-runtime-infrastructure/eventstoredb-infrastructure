@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/__init__.py
+pythoneda/runtime/infrastructure/__init__.py
 
-This file ensures pythoneda.runtime.boot is a namespace.
+This file ensures pythoneda.runtime.infrastructure is a namespace.
 
-Copyright (C) 2024-today rydnr's pythoneda-runtime/boot-infrastructure
+Copyright (C) 2024-today rydnr's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

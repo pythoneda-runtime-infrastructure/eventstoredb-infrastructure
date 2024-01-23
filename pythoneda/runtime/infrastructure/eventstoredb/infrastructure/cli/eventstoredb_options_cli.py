@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/infrastructure/cli/def_url_cli.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/cli/eventstoredb_options_cli.py
 
-This file defines the DefUrlCli class.
+This file defines the EventstoredbOptionsCli class.
 
-Copyright (C) 2024-today rydnr's https://github.com/pythoneda-runtime/boot-infrastructure
+Copyright (C) 2024-today rydnr's https://github.com/pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -25,25 +25,25 @@ from pythoneda.shared.application import PythonEDA
 from pythoneda.shared.infrastructure.cli import CliHandler
 
 
-class DefUrlCli(CliHandler, PrimaryPort):
+class EventstoredbOptionsCli(CliHandler, PrimaryPort):
 
     """
-    A PrimaryPort used to gather information about the url of a definition repository.
+    A PrimaryPort used to gather EventStoreDB options.
 
-    Class name: DefUrlCli
+    Class name: EventstoredbOptionsCli
 
     Responsibilities:
-        - Parse the command-line to retrieve the information about the url of a definition repository.
+        - Parse the command-line to retrieve the EventStoreDB options.
 
     Collaborators:
-        - pythoneda.runtime.boot.application.BootApp: They are notified back with the information retrieved from the command line.
+        - pythoneda.runtime.infrastructure.eventstoredb.application.EventstoredbApp: They are notified back with the information retrieved from the command line.
     """
 
     def __init__(self):
         """
-        Creates a new DefUrlCli instance.
+        Creates a new EventstoredbOptionsCli instance.
         """
-        super().__init__("Provide the url of the definition repository")
+        super().__init__("Provide the EventStoreDB options")
 
     @classmethod
     def priority(cls) -> int:
@@ -74,10 +74,45 @@ class DefUrlCli(CliHandler, PrimaryPort):
         :type parser: argparse.ArgumentParser
         """
         parser.add_argument(
-            "-d",
-            "--def-url",
-            required=True,
-            help="The url of the definition repository",
+            "-p",
+            "--http-port",
+            required=False,
+            help="The HTTP port",
+        )
+
+        parser.add_argument(
+            "-t",
+            "--tcp-port",
+            required=False,
+            help="The TCP/IP port",
+        )
+
+        parser.add_argument(
+            "-s",
+            "--cluster-size",
+            required=False,
+            help="The cluster size",
+        )
+
+        parser.add_argument(
+            "-r",
+            "--run-projections",
+            required=False,
+            help="Which projections to run",
+        )
+
+        parser.add_argument(
+            "-i",
+            "--insecure",
+            required=False,
+            help="Whether to run EventStoreDB in insecure mode",
+        )
+
+        parser.add_argument(
+            "-a",
+            "--enable-atom-over-http",
+            required=False,
+            help="Whether to enable Atom over HTTP",
         )
 
     async def handle(self, app: PythonEDA, args):
@@ -88,7 +123,15 @@ class DefUrlCli(CliHandler, PrimaryPort):
         :param args: The CLI args.
         :type args: argparse.args
         """
-        await app.accept_definition_url(args.def_url)
+        await app.accept_options(
+            {
+                "http-port": args.http_port,
+                "tcp-port": args.tcp_port,
+                "cluster-size": args.cluster_size,
+                "run-projections": args.run_projections,
+                "insecure": args.insecure,
+            }
+        )
 
 
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et

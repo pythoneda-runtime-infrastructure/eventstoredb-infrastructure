@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/infrastructure/dbus/boot_dbus_signal_listener.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_dbus_signal_listener.py
 
-This file defines the BootDbusSignalListener class.
+This file defines the EventstoredbDbusSignalListener class.
 
-Copyright (C) 2023-today boot's pythoneda-runtime/boot-infrastructure
+Copyright (C) 2024-today boot's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,33 +20,35 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from dbus_next import BusType, Message
-from pythoneda.runtime.boot.events.lifecycle import BootRequested
-from pythoneda.runtime.boot.events.lifecycle.infrastructure.dbus import (
-    DbusBootRequested,
+from pythoneda.runtime.infrastructure.events.eventstoredb import (
+    EventstoredbBootRequested,
+)
+from pythoneda.runtime.infrastructure.events.eventstoredb.infrastructure.dbus import (
+    EventstoredbDbusBootRequested,
 )
 from pythoneda.shared.infrastructure.dbus import DbusSignalListener
 from typing import Dict
 
 
-class BootDbusSignalListener(DbusSignalListener):
+class EventstoredbDbusSignalListener(DbusSignalListener):
 
     """
-    A Port that listens to Boot-relevant d-bus signals.
+    A Port that listens to EventStoreDB-relevant d-bus signals.
 
-    Class name: BootDbusSignalListener
+    Class name: EventstoredbDbusSignalListener
 
     Responsibilities:
         - Connect to d-bus.
-        - Listen to signals relevant to Boot.
+        - Listen to signals relevant to EventStoreDB.
 
     Collaborators:
         - pythoneda.shared.application.PythonEDA: Receives relevant domain events.
-        - pythoneda.runtime.boot.events.lifecycle.infrastructure.dbus.DbusBootRequested
+        - pythoneda.runtime.infrastructure.events.eventstoredb.infrastructure.dbus.EventstoredbDbusBootRequested
     """
 
     def __init__(self):
         """
-        Creates a new BootDbusSignalListener instance.
+        Creates a new EventstoredbDbusSignalListener instance.
         """
         super().__init__()
 
@@ -59,8 +61,8 @@ class BootDbusSignalListener(DbusSignalListener):
         :rtype: Dict
         """
         result = {}
-        key = self.__class__.full_class_name(BootRequested)
-        result[key] = [DbusBootRequested, BusType.SYSTEM]
+        key = self.__class__.full_class_name(EventstoredbBootRequested)
+        result[key] = [EventstoredbDbusBootRequested, BusType.SYSTEM]
         return result
 
 

@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/infrastructure/dbus/__init__.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/cli/__init__.py
 
-This file ensures pythoneda.runtime.boot.infrastructure.dbus is a namespace.
+This file ensures pythoneda.runtime.infrastructure.eventstoredb.infrastructure.cli is a namespace.
 
-Copyright (C) 2024-today rydnr's pythoneda-runtime/boot-infrastructure
+Copyright (C) 2024-today rydnr's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,8 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 __path__ = __import__("pkgutil").extend_path(__path__, __name__)
 
-from .boot_dbus_signal_emitter import BootDbusSignalEmitter
-from .boot_dbus_signal_listener import BootDbusSignalListener
+from .eventstoredb_options_cli.py import EventstoredbOptionsCli
 
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:

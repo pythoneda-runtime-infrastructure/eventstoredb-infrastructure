@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/boot/infrastructure/cli/__init__.py
+pythoneda/runtime/infrastructure/eventstoredb/__init__.py
 
-This file ensures pythoneda.runtime.boot.infrastructure.cli is a namespace.
+This file ensures pythoneda.runtime.infrastructure.eventstoredb is a namespace.
 
-Copyright (C) 2024-today rydnr's pythoneda-runtime/boot-infrastructure
+Copyright (C) 2024-today rydnr's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
