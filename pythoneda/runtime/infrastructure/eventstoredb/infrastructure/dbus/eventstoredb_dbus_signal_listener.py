@@ -20,10 +20,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from dbus_next import BusType, Message
-from pythoneda.runtime.infrastructure.events.eventstoredb import (
+from pythoneda.shared.runtime.infrastructure.events.eventstoredb import (
     EventstoredbBootRequested,
 )
-from pythoneda.runtime.infrastructure.events.eventstoredb.infrastructure.dbus import (
+from pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus import (
     EventstoredbDbusBootRequested,
 )
 from pythoneda.shared.infrastructure.dbus import DbusSignalListener

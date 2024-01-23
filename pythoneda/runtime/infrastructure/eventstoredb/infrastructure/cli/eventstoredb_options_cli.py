@@ -123,7 +123,7 @@ class EventstoredbOptionsCli(CliHandler, PrimaryPort):
         :param args: The CLI args.
         :type args: argparse.args
         """
-        await app.accept_options(
+        await app.accept_eventstoredb_options(
             {
                 "http-port": args.http_port,
                 "tcp-port": args.tcp_port,
