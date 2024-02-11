@@ -43,7 +43,7 @@ class EventstoredbDbusSignalEmitter(DbusSignalEmitter):
 
     Collaborators:
         - pythoneda.shared.application.PythonEDA: Requests emitting events.
-        - pythoneda.shared.runtime.infrastructure.events.eventstoredb.infrastructure.dbus.EventstoredbDbusBooted
+        - pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus.EventstoredbDbusBooted
     """
 
     def __init__(self):

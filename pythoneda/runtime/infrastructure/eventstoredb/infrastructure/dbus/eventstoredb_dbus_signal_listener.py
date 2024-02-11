@@ -4,7 +4,7 @@ pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_d
 
 This file defines the EventstoredbDbusSignalListener class.
 
-Copyright (C) 2024-today boot's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
+Copyright (C) 2024-today rydnr's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ class EventstoredbDbusSignalListener(DbusSignalListener):
 
     Collaborators:
         - pythoneda.shared.application.PythonEDA: Receives relevant domain events.
-        - pythoneda.runtime.infrastructure.events.eventstoredb.infrastructure.dbus.EventstoredbDbusBootRequested
+        - pythoneda.runtime.infrastructure.events.infrastructure.eventstoredb.dbus.EventstoredbDbusBootRequested
     """
 
     def __init__(self):
