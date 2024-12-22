@@ -1,8 +1,8 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_dbus_signal_emitter.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/dbus_eventstoredb_signal_emitter.py
 
-This file defines the EventstoredbDbusSignalEmitter class.
+This file defines the DbusEventstoredbSignalEmitter class.
 
 Copyright (C) 2023-today boot's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
@@ -19,19 +19,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from dbus_next import BusType
-from pythoneda.shared.runtime.infrastructure.events.eventstoredb import (
-    EventstoredbBooted,
-)
-from pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus import (
-    EventstoredbDbusBooted,
-)
 from pythoneda.shared.infrastructure.dbus import DbusSignalEmitter
-from typing import Dict
+from typing import List
 
 
-class EventstoredbDbusSignalEmitter(DbusSignalEmitter):
-
+class DbusEventstoredbSignalEmitter(DbusSignalEmitter):
     """
     A Port that emits EventStoreDB infrastructure events as d-bus signals.
 
@@ -43,26 +35,25 @@ class EventstoredbDbusSignalEmitter(DbusSignalEmitter):
 
     Collaborators:
         - pythoneda.shared.application.PythonEDA: Requests emitting events.
-        - pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus.EventstoredbDbusBooted
+        - pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus events
     """
 
     def __init__(self):
         """
-        Creates a new EventstoredbDbusSignalEmitter instance.
+        Creates a new DbusEventstoredbSignalEmitter instance.
         """
         super().__init__()
 
-    def signal_emitters(self) -> Dict:
+    @classmethod
+    def event_packages(cls) -> List[str]:
         """
-        Retrieves the configured event emitters.
-        :return: For each event, a list with the event interface and the bus type.
-        :rtype: Dict
+        Retrieves the packages of the supported events.
+        :return: The packages.
+        :rtype: List[str]
         """
-        result = {}
-        key = self.__class__.full_class_name(EventstoredbBooted)
-        result[key] = [EventstoredbDbusBooted, BusType.SYSTEM]
-
-        return result
+        return [
+            "pythoneda.shared.runtime.infrastructure.events.infrastructure.eventstoredb.dbus"
+        ]
 
 
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
