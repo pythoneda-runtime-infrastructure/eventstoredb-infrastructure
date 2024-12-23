@@ -1,8 +1,8 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/dbus_eventstoredb_signal_listener.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_dbus_signal_listener.py
 
-This file defines the DbusEventstoredbSignalListener class.
+This file defines the EventstoredbDbusSignalListener class.
 
 Copyright (C) 2024-today rydnr's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
@@ -22,11 +22,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from pythoneda.shared.infrastructure.dbus import DbusSignalListener
 
 
-class DbusEventstoredbSignalListener(DbusSignalListener):
+class EventstoredbDbusSignalListener(DbusSignalListener):
     """
     A Port that listens to EventStoreDB-relevant d-bus signals.
 
-    Class name: DbusEventstoredbSignalListener
+    Class name: EventstoredbDbusSignalListener
 
     Responsibilities:
         - Connect to d-bus.
@@ -39,7 +39,7 @@ class DbusEventstoredbSignalListener(DbusSignalListener):
 
     def __init__(self):
         """
-        Creates a new DbusEventstoredbSignalListener instance.
+        Creates a new EventstoredbDbusSignalListener instance.
         """
         super().__init__()
 

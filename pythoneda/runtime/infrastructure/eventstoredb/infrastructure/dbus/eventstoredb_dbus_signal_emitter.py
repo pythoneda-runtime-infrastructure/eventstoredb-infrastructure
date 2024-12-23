@@ -1,8 +1,8 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/dbus_eventstoredb_signal_emitter.py
+pythoneda/runtime/infrastructure/eventstoredb/infrastructure/dbus/eventstoredb_dbus_signal_emitter.py
 
-This file defines the DbusEventstoredbSignalEmitter class.
+This file defines the EventstoredbDbusSignalEmitter class.
 
 Copyright (C) 2023-today boot's pythoneda-runtime-infrastructure/eventstoredb-infrastructure
 
@@ -23,7 +23,7 @@ from pythoneda.shared.infrastructure.dbus import DbusSignalEmitter
 from typing import List
 
 
-class DbusEventstoredbSignalEmitter(DbusSignalEmitter):
+class EventstoredbDbusSignalEmitter(DbusSignalEmitter):
     """
     A Port that emits EventStoreDB infrastructure events as d-bus signals.
 
@@ -40,7 +40,7 @@ class DbusEventstoredbSignalEmitter(DbusSignalEmitter):
 
     def __init__(self):
         """
-        Creates a new DbusEventstoredbSignalEmitter instance.
+        Creates a new EventstoredbDbusSignalEmitter instance.
         """
         super().__init__()
 
